@@ -46,14 +46,19 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<MauiIcon Include="Resources\AppIcon\ic_launcher.png" />
 		<MauiIcon Include="Resources\AppIcon\ic_launcher_round.png" />
 	</ItemGroup>
 	
-	<ItemGroup>
-	  <Folder Include="ViewModels\" />
-	</ItemGroup>
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionBroCalculatorHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>
