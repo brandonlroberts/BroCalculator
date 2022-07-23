@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace BroCalculator
+namespace BroCalculator.ViewModels
 {
     public partial class BaseViewModel : ObservableObject
     {

@@ -1,11 +1,5 @@
 ﻿using BroCalculator.Models;
 using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Java.Util.Jar.Attributes;
 
 namespace BroCalculator.Services
 {
@@ -38,9 +32,6 @@ namespace BroCalculator.Services
         {
             try
             {
-                //Init();
-                //return conn.Table<Food>().ToList();
-
                 return new List<Food>
                 {
                     new Food
