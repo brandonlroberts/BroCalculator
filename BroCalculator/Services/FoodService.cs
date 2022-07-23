@@ -39,23 +39,35 @@ namespace BroCalculator.Services
                         Id = 1,
                         Brand = "Tyson",
                         Name = "Grilled Chicken Breast",
-                        Calories = 200,  
+                        Calories = 200,
                         Description = "Plain grilled chicken breast.",
                         Measurement = 250,
-                        MeasurementId = 1,
+                        MeasurementId = 2,
                         Protein = 50
                     },
                     new Food
                     {
                         Id = 2,
                         Brand= "Members Mark",
-                        Name = "Greek Yogurt (Nonfat)",                       
-                        Calories = 100,  
-                        Description = "Plain grilled chicken breast.",
-                        Measurement = .75,
-                        MeasurementId= 2,
+                        Name = "Greek Yogurt (Nonfat)",
+                        Calories = 100,
+                        Description = "Plain nonfat greek yogurt.",
+                        Measurement = 1,
+                        MeasurementId= 3,
                         Protein = 18
+                    },
+                    new Food
+                    {
+                        Id = 2,
+                        Brand= "Jack Links",
+                        Name = "Original Beef Jerky",
+                        Calories = 100,
+                        Description = "Single Packs.",
+                        Measurement = 1,
+                        MeasurementId= 1,
+                        Protein = 10
                     }
+
                 };
             }
             catch (Exception ex)
@@ -81,7 +93,13 @@ namespace BroCalculator.Services
                     {
                         Id = 2,
                         Name = "gram(s)"
+                    },
+                    new Measurement
+                    {
+                        Id = 3,
+                        Name = "cup(s)"
                     }
+
                 };
             }
             catch (Exception ex)

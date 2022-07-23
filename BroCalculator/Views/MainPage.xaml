@@ -3,53 +3,86 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BroCalculator.Views.MainPage"
              xmlns:model ="clr-namespace:BroCalculator.Models"
-             xmlns:viewmodel ="clr-namespace:BroCalculator.ViewModels"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundImageSource="background.png">
     <StackLayout Padding="20,0,20,0">
-        <Button Margin="0,20,0,0"
-                Text="*"
-                FontSize="20"
-                HorizontalOptions="End"
+        <HorizontalStackLayout HorizontalOptions="End">
+            <ImageButton
+                Source="settings.png"
+                Clicked="Settings_Invoked"
                 VerticalOptions="Center"
-                BackgroundColor="Gray"
-                MaximumHeightRequest="40"
-                MaximumWidthRequest="40"
-                Command="{Binding AddFoodCommand}"/>
-        <Grid Padding="0,20,0,20">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+                MaximumHeightRequest="30"
+                MaximumWidthRequest="30"
+                Margin="0,20,5,10"/>
+            <ImageButton
+                Source="help.png"
+                Clicked="Help_Invoked"
+                VerticalOptions="Center"
+                MaximumHeightRequest="30"
+                MaximumWidthRequest="30"
+                Margin="0,20,5,10"/>
+        </HorizontalStackLayout>
 
-            <BoxView Color="White" />
-            <Label
+
+        <Frame CornerRadius="15" 
+           HorizontalOptions="Center" 
+           VerticalOptions="Start"
+           IsClippedToBounds="True"
+           Padding="0"
+           Margin="0,0,0,20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <BoxView Color="White"/>
+                <Label Padding="15,15,15,0"
                Text="{Binding TotalCalories, StringFormat='Total Calories {0}'}"
                HorizontalOptions="Start"/>
 
-            <BoxView Grid.Column="1" Color="White" />
-            <Label
+                <BoxView Grid.Column="1" Color="White" />
+                <Label Padding="15,15,15,0"
                Grid.Column="1"
                Text="{Binding RemainingCalories, StringFormat='Remaining Calories {0}'}"
                HorizontalOptions="End"/>
 
-            <BoxView Grid.Row="1" Color="White" />
-            <Label
+                <BoxView Grid.Row="1" Color="White" />
+                <Label Padding="15,0,15,15"
                Grid.Row="1"
                Text="{Binding TotalProtein, StringFormat='Total Protein {0}'}"
                HorizontalOptions="Start"/>
 
-            <BoxView Grid.Row="1" Grid.Column="1" Color="White" />
-            <Label
+                <BoxView Grid.Row="1" Grid.Column="1" Color="White" />
+                <Label Padding="15,0,15,15"
                Grid.Row="1"
                Grid.Column="1"
                Text="{Binding RemainingProtein, StringFormat='Remaining Protein {0}'}"
                HorizontalOptions="End"/>
-        </Grid>
+            </Grid>
+        </Frame>
+
+        <Button
+            MaximumWidthRequest="100"
+            HorizontalOptions="Start"
+            Margin="0,0,0,10"
+            Command="{Binding AddFoodCommand}"
+            Text="Add Food" />
+
         <CollectionView ItemsSource="{Binding Foods}">
+            <CollectionView.Header>
+                <StackLayout BackgroundColor="Black">
+                    <Label Margin="10,0,0,0"
+                       Text="Daily Food Log"
+                       FontSize="20"
+                       TextColor="White"
+                       FontAttributes="Bold" />
+                </StackLayout>
+            </CollectionView.Header>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Food">
                     <SwipeView>
@@ -62,19 +95,25 @@
                                    Invoked="DeleteFood_Invoked"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Frame Style="{StaticResource CardView}">
+                        <Frame
+                            Style="{StaticResource Cardview}"
+                            BackgroundColor="White"
+                            BorderColor="Black"
+                            CornerRadius="0"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
                                 <VerticalStackLayout>
                                     <Label FontAttributes="Bold" Text="{Binding Name}"/>
                                     <Label Text="{Binding Calories, StringFormat='Calories : {0}'}"/>
                                     <Label Text="{Binding Protein, StringFormat='Protein : {0}'}"/>
                                 </VerticalStackLayout>
-                            </Frame>
-                        </Grid>
+                            </Grid>
+                        </Frame>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

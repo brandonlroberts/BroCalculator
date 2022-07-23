@@ -30,5 +30,16 @@ public partial class MainPage : ContentPage
 			DisplayAlert("Delete Successfull", $"{selectedFood.Name} has been DELETED from your daily log!", "Thanks");
 		else DisplayAlert("Delete FAILED", $"There was an issue deleting {selectedFood.Name}!", "Please try again...");
 	}
+
+	void Settings_Invoked(object sender, EventArgs e)
+	{
+		DisplayAlert("Settings Clicked", $"This is where you will click to change your user settings.", "Thanks");
+	}
+
+	void Help_Invoked(object sender, EventArgs e)
+	{
+		DisplayAlert("Help Clicked", $"This is where you will click to view the helper page.", "Thanks");
+	}
+
 }
 

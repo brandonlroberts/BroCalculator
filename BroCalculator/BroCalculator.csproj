@@ -15,6 +15,11 @@
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.brocalculator</ApplicationId>
 		<ApplicationIdGuid>695A4BD5-1A61-4763-8D1E-76D2AF2A2CCE</ApplicationIdGuid>
+		<!--**** UNCOMMENT TO BUILD ON iPhone ****-->
+		<!--		</PropertyGroup>
+			<PropertyGroup Condition="$(TargetFramework.Contains('-ios'))">
+				<RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+				<ArchiveOnBuild>true</ArchiveOnBuild>-->
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
@@ -28,7 +33,7 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\applogo.svg" Color="orange" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\muscle1.svg" Color="#FF7518" BaseSize="128,128"/>
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiFont Include="Resources\Fonts\*" />
@@ -48,12 +53,12 @@
 		<MauiIcon Include="Resources\AppIcon\appiconfg.svg" />
 	</ItemGroup>
 	<ItemGroup>
-	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Views\MainPage %28copy%29.xaml">
-	    <SubType>Designer</SubType>
-	  </MauiXaml>
-	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Views\AddFoodPage.xaml">
-	    <SubType>Designer</SubType>
-	  </MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Views\MainPage %28copy%29.xaml">
+			<SubType>Designer</SubType>
+		</MauiXaml>
+		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Views\AddFoodPage.xaml">
+			<SubType>Designer</SubType>
+		</MauiXaml>
 	</ItemGroup>
 	<ProjectExtensions>
 		<VisualStudio>
